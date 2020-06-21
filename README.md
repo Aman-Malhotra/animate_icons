@@ -2,7 +2,7 @@
 
 ### Demo:
 
-![Demo 1](./examples/G1.gif) ![Demo 2](./examples/G2.gif) ![Demo 3](./examples/G3.gif) 
+![Demo 1](./demo/G1.gif) ![Demo 2](./demo/G2.gif) ![Demo 3](./demo/G3.gif) 
 
 ### How to use:
 
