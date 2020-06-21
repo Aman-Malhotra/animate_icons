@@ -1,5 +1,9 @@
 ## Animate Any two icons with this plugin
 
+### Demo:
+
+![Demo 1](./examples/G1.gif) ![Demo 2](./examples/G2.gif) ![Demo 3](./examples/G3.gif) 
+
 ### How to use:
 
 All plugin in your pubspec.yaml 
