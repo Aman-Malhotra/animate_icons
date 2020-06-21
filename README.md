@@ -2,7 +2,7 @@
 
 ### Demo:
 
-![Demo 1](./demo/G1.gif) ![Demo 2](./demo/G2.gif) ![Demo 3](./demo/G3.gif) 
+![Demo 1](https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/G1.gif) ![Demo 2](https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/G2.gif) ![Demo 3](https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/G3.gif) 
 
 ### How to use:
 

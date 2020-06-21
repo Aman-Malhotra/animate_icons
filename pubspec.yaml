@@ -1,7 +1,7 @@
 name: animate_icons
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+repository: https://github.com/Aman-Malhotra/AnimateIconsFlutter
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

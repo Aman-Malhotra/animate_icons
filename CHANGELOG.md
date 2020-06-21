@@ -1,3 +1,8 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 21/06/2020
 
-* TODO: Describe initial release.
+* First Working release to Animate Icons
+
+
+## [0.0.2] - 21/06/2020
+
+* Update Gif to Links 
