@@ -3,11 +3,13 @@ import 'dart:math' as math;
 
 class AnimateIcons extends StatefulWidget {
   final IconData startIcon, endIcon;
-  final Function onStartIconPress, onEndIconPress;
+  final bool Function() onStartIconPress, onEndIconPress;
   final Duration duration;
   final bool clockwise;
   final double size;
   final Color color;
+  final AnimateIconController controller;
+
   const AnimateIcons({
     /// The IconData that will be visible before animation Starts
     @required this.startIcon,
@@ -16,13 +18,22 @@ class AnimateIcons extends StatefulWidget {
     @required this.endIcon,
 
     /// The callback on startIcon Press
+    /// It should return a bool
+    /// If true is returned it'll animate to the end icon
+    /// if false is returned it'll not animate to the end icons
     @required this.onStartIconPress,
 
     /// The callback on endIcon Press
+    /// /// It should return a bool
+    /// If true is returned it'll animate to the end icon
+    /// if false is returned it'll not animate to the end icons
     @required this.onEndIconPress,
 
     /// The size of the icon that are to be shown.
     this.size,
+
+    /// AnimateIcons controller
+    this.controller,
 
     /// The color of the icons that are to be shown
     this.color,
@@ -53,18 +64,31 @@ class _AnimateIconsState extends State<AnimateIcons>
     this._controller.addListener(() {
       setState(() {});
     });
-
+    initControllerFunctions();
     super.initState();
   }
 
+  initControllerFunctions() {
+    if (widget.controller != null) {
+      widget.controller.animateToEnd = () {
+        _controller.forward();
+        return true;
+      };
+      widget.controller.animateToStart = () {
+        _controller.reverse();
+        return true;
+      };
+      widget.controller.isStart = () => _controller.value == 0.0;
+      widget.controller.isEnd = () => _controller.value == 1.0;
+    }
+  }
+
   _onStartIconPress() {
-    _controller.forward();
-    widget.onStartIconPress();
+    if (widget.onStartIconPress()) _controller.forward();
   }
 
   _onEndIconPress() {
-    _controller.reverse();
-    widget.onEndIconPress();
+    if (widget.onEndIconPress()) _controller.reverse();
   }
 
   @override
@@ -87,7 +111,8 @@ class _AnimateIconsState extends State<AnimateIcons>
               widget.startIcon,
               size: widget.size,
             ),
-            onPressed: widget.onStartIconPress != null ? _onStartIconPress : null,
+            onPressed:
+                widget.onStartIconPress != null ? _onStartIconPress : null,
           ),
         ),
       );
@@ -119,4 +144,9 @@ class _AnimateIconsState extends State<AnimateIcons>
       ],
     );
   }
+}
+
+class AnimateIconController {
+  bool Function() animateToStart, animateToEnd;
+  bool Function() isStart, isEnd;
 }

@@ -1,7 +1,8 @@
 name: animate_icons
-description: A new Flutter package project.
-version: 0.0.2
+description: This is a plugin with the help of which you can animate between any two icons like we do in AnimatedIcon widget given to us by default.
+version: 0.0.4
 repository: https://github.com/Aman-Malhotra/AnimateIconsFlutter
+homepage: https://github.com/Aman-Malhotra/AnimateIconsFlutter
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

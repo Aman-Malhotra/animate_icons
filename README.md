@@ -2,7 +2,9 @@
 
 ### Demo:
 
-![Demo 1](https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/G1.gif) ![Demo 2](https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/G2.gif) ![Demo 3](https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/G3.gif) 
+![Demo 1](https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconsDemo.gif) 
+
+
 
 ### How to use:
 
@@ -22,13 +24,55 @@ Use the following widget:
         size: 60.0,
         onStartIconPress: () {
             print("Clicked on Add Icon");
+            return true;
         },
         onEndIconPress: () {
             print("Clicked on Close Icon");
+            return true;
         },
         duration: Duration(milliseconds: 500),
         color: Theme.of(context).primaryColor,
         clockwise: false,
     ),
 
+
+# Use AnimateIconController
+Define AnimateIconController to animate b/w start and end icons without onIco press, check which icon is there on top - start or end.
+
+### Define AnimateIconController
+    
+> AnimateIconController controller;
+
+### Initialize controller    
+    
+> controller = AnimateIconController();
+
+### Pass controller to widget 
+```
+AnimateIcons(
+    startIcon: Icons.add,
+    endIcon: Icons.close,
+    controller: controller, 
+    size: 60.0,
+    onStartIconPress: () {
+        print("Clicked on Add Icon");
+        return true;
+    },
+    onEndIconPress: () {
+        print("Clicked on Close Icon");
+        return true;
+    },
+    duration: Duration(milliseconds: 500),
+    color: Theme.of(context).primaryColor,
+    clockwise: false,
+),
+```
+### Use controller functions
+``` 
+if (controller.isStart()) {
+    controller.animateToEnd();
+} else if (controller.isEnd()) {
+    controller.animateToStart();
+}
+```
 
