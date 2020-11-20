@@ -29,7 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   animate_icons:
-    path: ../../animate_icon
+    path: ../../AnimateIconsFlutter
 
 dev_dependencies:
   flutter_test:

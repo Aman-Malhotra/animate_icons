@@ -28,13 +28,15 @@ class _MyAppState extends State<MyApp> {
         return Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AnimateIcons(
-                startIcon: Icons.bluetooth,
-                endIcon: Icons.bluetooth_disabled,
-                size: 60.0,
+                startIcon: Icons.add_circle,
+                endIcon: Icons.add_circle_outline,
+                size: 100.0,
                 controller: controller,
+                startTooltip: 'Icons.add_circle',
+                endTooltip: 'Icons.add_circle_outline',
                 onEndIconPress: () {
                   Scaffold.of(context).showSnackBar(
                     SnackBar(
