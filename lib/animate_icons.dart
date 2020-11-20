@@ -2,14 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class AnimateIcons extends StatefulWidget {
-  final IconData startIcon, endIcon;
-  final bool Function() onStartIconPress, onEndIconPress;
-  final Duration duration;
-  final bool clockwise;
-  final double size;
-  final Color color;
-  final AnimateIconController controller;
-
   const AnimateIcons({
     /// The IconData that will be visible before animation Starts
     @required this.startIcon,
@@ -43,7 +35,21 @@ class AnimateIcons extends StatefulWidget {
 
     /// If the animation runs in the clockwise or anticlockwise direction
     this.clockwise,
+
+    /// This is the tooltip that will be used for the [startIcon]
+    this.startTooltip,
+
+    /// This is the tooltip that will be used for the [endIcon]
+    this.endTooltip,
   });
+  final IconData startIcon, endIcon;
+  final bool Function() onStartIconPress, onEndIconPress;
+  final Duration duration;
+  final bool clockwise;
+  final double size;
+  final Color color;
+  final AnimateIconController controller;
+  final String startTooltip, endTooltip;
 
   @override
   _AnimateIconsState createState() => _AnimateIconsState();
@@ -107,9 +113,12 @@ class _AnimateIconsState extends State<AnimateIcons>
             iconSize: widget.size,
             color: widget.color ?? Theme.of(context).primaryColor,
             disabledColor: Colors.grey.shade500,
-            icon: Icon(
-              widget.startIcon,
-              size: widget.size,
+            icon: Tooltip(
+              message: widget.startTooltip,
+              child: Icon(
+                widget.startIcon,
+                size: widget.size,
+              ),
             ),
             onPressed:
                 widget.onStartIconPress != null ? _onStartIconPress : null,
@@ -127,8 +136,11 @@ class _AnimateIconsState extends State<AnimateIcons>
             iconSize: widget.size,
             color: widget.color ?? Theme.of(context).primaryColor,
             disabledColor: Colors.grey.shade500,
-            icon: Icon(
-              widget.endIcon,
+            icon: Tooltip(
+              message: widget.endTooltip,
+              child: Icon(
+                widget.endIcon,
+              ),
             ),
             onPressed: widget.onEndIconPress != null ? _onEndIconPress : null,
           ),
