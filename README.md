@@ -2,7 +2,7 @@
 
 ### Demo:
 
-<img src="https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconsDemo.gif"  height="450" />
+<img src="https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconsDemo.gif" height="450" />
 
 ### How to use:
 
@@ -17,8 +17,14 @@ Make the import:
 Use the following widget:
 
     AnimateIcons(
-        startIcon: Icons.add,
-        endIcon: Icons.close,
+        startIcon: Icons.add_circle,
+        endIcon: Icons.add_circle_outline,
+        size: 100.0,
+        controller: controller,
+        // add this tooltip for the start icon
+        startTooltip: 'Icons.add_circle',
+        // add this tooltip for the end icon
+        endTooltip: 'Icons.add_circle_outline',
         size: 60.0,
         onStartIconPress: () {
             print("Clicked on Add Icon");

@@ -35,7 +35,9 @@ class _MyAppState extends State<MyApp> {
                 endIcon: Icons.add_circle_outline,
                 size: 100.0,
                 controller: controller,
+                // add this tooltip for the start icon
                 startTooltip: 'Icons.add_circle',
+                // add this tooltip for the end icon
                 endTooltip: 'Icons.add_circle_outline',
                 onEndIconPress: () {
                   Scaffold.of(context).showSnackBar(
