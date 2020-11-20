@@ -2,7 +2,7 @@
 
 ### Demo:
 
-<img src="https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconDemo.gif" width="250" height="450" />
+<img src="https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconsDemo.gif"  height="450" />
 
 ### How to use:
 
