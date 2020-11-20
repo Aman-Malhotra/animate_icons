@@ -69,10 +69,10 @@ class _AnimateIconsState extends State<AnimateIcons>
     initControllerFunctions();
     super.initState();
   }
-  
+
   @override
   void dispose() {
-    this._controller.dispose()
+    this._controller.dispose();
     super.dispose();
   }
 
