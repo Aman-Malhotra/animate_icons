@@ -68,10 +68,18 @@ class _AnimateIconsState extends State<AnimateIcons>
       upperBound: 1.0,
     );
     this._controller.addListener(() {
-      setState(() {});
+      if (mounted) {
+        setState(() {});
+      }
     });
     initControllerFunctions();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    this._controller.dispose();
+    super.dispose();
   }
 
   initControllerFunctions() {
