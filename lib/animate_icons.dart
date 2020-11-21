@@ -85,12 +85,20 @@ class _AnimateIconsState extends State<AnimateIcons>
   initControllerFunctions() {
     if (widget.controller != null) {
       widget.controller.animateToEnd = () {
-        _controller.forward();
-        return true;
+        if (mounted) {
+          _controller.forward();
+          return true;
+        } else {
+          return false;
+        }
       };
       widget.controller.animateToStart = () {
-        _controller.reverse();
-        return true;
+        if (mounted) {
+          _controller.reverse();
+          return true;
+        } else {
+          return false;
+        }
       };
       widget.controller.isStart = () => _controller.value == 0.0;
       widget.controller.isEnd = () => _controller.value == 1.0;
@@ -98,11 +106,11 @@ class _AnimateIconsState extends State<AnimateIcons>
   }
 
   _onStartIconPress() {
-    if (widget.onStartIconPress()) _controller.forward();
+    if (widget.onStartIconPress() && mounted) _controller.forward();
   }
 
   _onEndIconPress() {
-    if (widget.onEndIconPress()) _controller.reverse();
+    if (widget.onEndIconPress() && mounted) _controller.reverse();
   }
 
   @override
