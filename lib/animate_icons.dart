@@ -113,6 +113,7 @@ class _AnimateIconsState extends State<AnimateIcons>
     double angleY = math.pi / 180 * (180 * y);
 
     Widget first() {
+      final icon = Icon(widget.startIcon, size: widget.size);
       return Transform.rotate(
         angle: widget.clockwise ?? false ? angleX : -angleX,
         child: Opacity(
@@ -121,13 +122,12 @@ class _AnimateIconsState extends State<AnimateIcons>
             iconSize: widget.size,
             color: widget.color ?? Theme.of(context).primaryColor,
             disabledColor: Colors.grey.shade500,
-            icon: Tooltip(
-              message: widget.startTooltip,
-              child: Icon(
-                widget.startIcon,
-                size: widget.size,
-              ),
-            ),
+            icon: widget.startTooltip == null
+                ? icon
+                : Tooltip(
+                    message: widget.startTooltip,
+                    child: icon,
+                  ),
             onPressed:
                 widget.onStartIconPress != null ? _onStartIconPress : null,
           ),
@@ -136,6 +136,7 @@ class _AnimateIconsState extends State<AnimateIcons>
     }
 
     Widget second() {
+      final icon = Icon(widget.endIcon);
       return Transform.rotate(
         angle: widget.clockwise ?? false ? -angleY : angleY,
         child: Opacity(
@@ -144,12 +145,12 @@ class _AnimateIconsState extends State<AnimateIcons>
             iconSize: widget.size,
             color: widget.color ?? Theme.of(context).primaryColor,
             disabledColor: Colors.grey.shade500,
-            icon: Tooltip(
-              message: widget.endTooltip,
-              child: Icon(
-                widget.endIcon,
-              ),
-            ),
+            icon: widget.endTooltip == null
+                ? icon
+                : Tooltip(
+                    message: widget.endTooltip,
+                    child: icon,
+                  ),
             onPressed: widget.onEndIconPress != null ? _onEndIconPress : null,
           ),
         ),
