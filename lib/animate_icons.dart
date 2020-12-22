@@ -27,8 +27,11 @@ class AnimateIcons extends StatefulWidget {
     /// AnimateIcons controller
     this.controller,
 
-    /// The color of the icons that are to be shown
-    this.color,
+    /// The color to be used for the [startIcon]
+    this.startIconColor,
+
+    // The color to be used for the [endIcon]
+    this.endIconColor,
 
     /// The duration for which the animation runs
     this.duration,
@@ -47,7 +50,7 @@ class AnimateIcons extends StatefulWidget {
   final Duration duration;
   final bool clockwise;
   final double size;
-  final Color color;
+  final Color startIconColor, endIconColor;
   final AnimateIconController controller;
   final String startTooltip, endTooltip;
 
@@ -120,7 +123,7 @@ class _AnimateIconsState extends State<AnimateIcons>
           opacity: y,
           child: IconButton(
             iconSize: widget.size,
-            color: widget.color ?? Theme.of(context).primaryColor,
+            color: widget.startIconColor ?? Theme.of(context).primaryColor,
             disabledColor: Colors.grey.shade500,
             icon: widget.startTooltip == null
                 ? icon
@@ -143,7 +146,7 @@ class _AnimateIconsState extends State<AnimateIcons>
           opacity: x ?? 0.0,
           child: IconButton(
             iconSize: widget.size,
-            color: widget.color ?? Theme.of(context).primaryColor,
+            color: widget.endIconColor ?? Theme.of(context).primaryColor,
             disabledColor: Colors.grey.shade500,
             icon: widget.endTooltip == null
                 ? icon
