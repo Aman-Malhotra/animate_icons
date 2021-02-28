@@ -1,3 +1,7 @@
+# [1.0.1] - 28/02/2021
+
+* Add different colors for start and end icons.
+
 # [1.0.0] - 20/11/2020
 
 * Now you can add two different tooltips for start and end icons
