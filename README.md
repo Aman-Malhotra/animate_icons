@@ -35,7 +35,8 @@ Use the following widget:
             return true;
         },
         duration: Duration(milliseconds: 500),
-        color: Theme.of(context).primaryColor,
+        startIconColor: Colors.deepPurple,
+        endIconColor: Colors.deepOrange,
         clockwise: false,
     ),
 
