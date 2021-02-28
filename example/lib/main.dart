@@ -59,7 +59,8 @@ class _MyAppState extends State<MyApp> {
                 },
                 duration: Duration(milliseconds: 600),
                 clockwise: true,
-                color: Colors.deepPurple,
+                startIconColor: Colors.deepPurple,
+                endIconColor: Colors.yellow,
               ),
               IconButton(
                 iconSize: 50.0,
