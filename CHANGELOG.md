@@ -1,3 +1,7 @@
+# [1.0.2] - 28/02/2021
+* Fix icon size issue.
+* Update example app. 
+
 # [1.0.1] - 28/02/2021
 
 * Add different colors for start and end icons. Thanks [Isaac](https://github.com/oppongjr) for the PR.

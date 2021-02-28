@@ -4,6 +4,8 @@
 
 <img src="https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconDemo.gif" height="450" />
 
+<img src="https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconDemo.gif" height="200" />
+
 ### How to use:
 
 All plugin in your pubspec.yaml 
@@ -68,7 +70,8 @@ AnimateIcons(
         return true;
     },
     duration: Duration(milliseconds: 500),
-    color: Theme.of(context).primaryColor,
+    startIconColor: Colors.deepPurple,
+    endIconColor: Colors.deepOrange,
     clockwise: false,
 ),
 ```
