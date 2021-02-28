@@ -2,9 +2,8 @@
 
 ### Demo:
 
-<img src="https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconDemo.gif" height="450" />
+<img src="https://raw.githubusercontent.com/Aman-Malhotra/animate_icons/main/demo/animate_icons.gif" height="200" />
 
-<img src="https://raw.githubusercontent.com/Aman-Malhotra/AnimateIconsFlutter/main/demo/AnimateIconDemo.gif" height="200" />
 
 ### How to use:
 
