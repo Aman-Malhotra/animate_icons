@@ -1,6 +1,6 @@
 # [1.0.1] - 28/02/2021
 
-* Add different colors for start and end icons.
+* Add different colors for start and end icons. Thanks [Isaac](https://github.com/oppongjr) for the PR.
 
 # [1.0.0] - 20/11/2020
 
