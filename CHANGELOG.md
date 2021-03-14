@@ -1,3 +1,6 @@
+# [2.0.0] - 15/03/2021
+* Null Safety introduced. Thanks to [Aissat](https://github.com/aissat) for the implementation
+
 # [1.0.2] - 28/02/2021
 * Fix icon size issue.
 * Update example app. 

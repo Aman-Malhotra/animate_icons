@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
   bool onStartIconPress(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("onEndIconPress called"),
+        content: Text("onStartIconPress called"),
         duration: Duration(seconds: 1),
       ),
     );
