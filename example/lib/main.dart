@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   bool onEndIconPress(BuildContext context) {
-    Scaffold.of(context).showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text("onEndIconPress called"),
         duration: Duration(seconds: 1),
@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   bool onStartIconPress(BuildContext context) {
-    Scaffold.of(context).showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text("onEndIconPress called"),
         duration: Duration(seconds: 1),
