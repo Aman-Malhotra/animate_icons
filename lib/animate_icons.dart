@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
 
 class AnimateIcons extends StatefulWidget {
   const AnimateIcons({
@@ -44,13 +45,20 @@ class AnimateIcons extends StatefulWidget {
 
     /// This is the tooltip that will be used for the [endIcon]
     this.endTooltip,
+
+    /// Color for the click effect (splashColor)
+    this.splashColor = Colors.transparent,
+
+    /// radius for the on click splash effect
+    this.splashRadius,
   });
+
   final IconData startIcon, endIcon;
   final bool Function() onStartIconPress, onEndIconPress;
   final Duration? duration;
   final bool? clockwise;
-  final double? size;
-  final Color? startIconColor, endIconColor;
+  final double? size, splashRadius;
+  final Color? startIconColor, endIconColor, splashColor;
   final AnimateIconController controller;
   final String? startTooltip, endTooltip;
 
@@ -128,7 +136,10 @@ class _AnimateIconsState extends State<AnimateIcons>
         child: Opacity(
           opacity: y,
           child: IconButton(
+            splashColor: widget.splashColor,
+            highlightColor: Colors.transparent,
             iconSize: widget.size ?? 24.0,
+            splashRadius: widget.splashRadius ?? Material.defaultSplashRadius,
             color: widget.startIconColor ?? Theme.of(context).primaryColor,
             disabledColor: Colors.grey.shade500,
             icon: widget.startTooltip == null
@@ -150,7 +161,10 @@ class _AnimateIconsState extends State<AnimateIcons>
         child: Opacity(
           opacity: x,
           child: IconButton(
+            splashColor: widget.splashColor,
+            highlightColor: Colors.transparent,
             iconSize: widget.size ?? 24.0,
+            splashRadius: widget.splashRadius ?? Material.defaultSplashRadius,
             color: widget.endIconColor ?? Theme.of(context).primaryColor,
             disabledColor: Colors.grey.shade500,
             icon: widget.endTooltip == null

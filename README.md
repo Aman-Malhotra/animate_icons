@@ -27,6 +27,10 @@ Use the following widget:
         // add this tooltip for the end icon
         endTooltip: 'Icons.add_circle_outline',
         size: 60.0,
+        // add this for splashColor, default is Colors.transparent means no click effect
+        splashColor: Colors.blueAccent.shade100.withAlpha(50),
+        // default is Material.defaultSplashRadius (35)
+        splashRadius: 24,
         onStartIconPress: () {
             print("Clicked on Add Icon");
             return true;
@@ -58,7 +62,9 @@ Define AnimateIconController to animate b/w start and end icons without onIco pr
 AnimateIcons(
     startIcon: Icons.add,
     endIcon: Icons.close,
-    controller: controller, 
+    controller: controller,
+    splashColor: Colors.blueAccent.shade100.withAlpha(50),
+    splashRadius: 24,
     size: 60.0,
     onStartIconPress: () {
         print("Clicked on Add Icon");
