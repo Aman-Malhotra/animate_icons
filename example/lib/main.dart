@@ -18,6 +18,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late AnimateIconController c1, c2, c3, c4, c5, c6;
+
   @override
   void initState() {
     c1 = AnimateIconController();
@@ -116,6 +117,7 @@ class _MyAppState extends State<MyApp> {
                 startIcon: Icons.play_arrow,
                 endIcon: Icons.play_arrow_outlined,
                 size: 45.0,
+                splashColor: Colors.blueAccent.shade100.withAlpha(50),
                 controller: AnimateIconController(),
                 onEndIconPress: () {
                   if (c1.isStart()) {
