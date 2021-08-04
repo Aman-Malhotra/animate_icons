@@ -36,6 +36,9 @@ class AnimateIcons extends StatefulWidget {
     /// The duration for which the animation runs
     this.duration,
 
+    /// The amplitude of the rotation in degrees
+    this.amplitude,
+    
     /// If the animation runs in the clockwise or anticlockwise direction
     this.clockwise,
 
@@ -48,6 +51,7 @@ class AnimateIcons extends StatefulWidget {
   final IconData startIcon, endIcon;
   final bool Function() onStartIconPress, onEndIconPress;
   final Duration? duration;
+  final double? amplitude;
   final bool? clockwise;
   final double? size;
   final Color? startIconColor, endIconColor;
@@ -118,8 +122,8 @@ class _AnimateIconsState extends State<AnimateIcons>
   Widget build(BuildContext context) {
     double x = _controller.value;
     double y = 1.0 - _controller.value;
-    double angleX = math.pi / 180 * (180 * x);
-    double angleY = math.pi / 180 * (180 * y);
+    double angleX = math.pi / 180 * ((widget.amplitude ?? 180) * x);
+    double angleY = math.pi / 180 * ((widget.amplitude ?? 180) * y);
 
     Widget first() {
       final icon = Icon(widget.startIcon, size: widget.size);
