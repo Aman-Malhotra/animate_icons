@@ -36,6 +36,10 @@ class AnimateIcons extends StatefulWidget {
     /// The duration for which the animation runs
     this.duration,
 
+    /// The curve for the animation
+    /// Default is Curves.easeInOut
+    this.curve = Curves.easeInOut,
+
     /// If the animation runs in the clockwise or anticlockwise direction
     this.clockwise,
 
@@ -48,6 +52,7 @@ class AnimateIcons extends StatefulWidget {
   final IconData startIcon, endIcon;
   final bool Function() onStartIconPress, onEndIconPress;
   final Duration? duration;
+  final Curve curve;
   final bool? clockwise;
   final double? size;
   final Color? startIconColor, endIconColor;
@@ -61,6 +66,7 @@ class AnimateIcons extends StatefulWidget {
 class _AnimateIconsState extends State<AnimateIcons>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  late Animation<double> _animation;
 
   @override
   void initState() {
@@ -75,6 +81,12 @@ class _AnimateIconsState extends State<AnimateIcons>
         setState(() {});
       }
     });
+    this._animation = Tween(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: this._controller,
+        curve: widget.clockwise == true ? widget.curve : widget.curve.flipped,
+      ),
+    );
     initControllerFunctions();
     super.initState();
   }
@@ -102,8 +114,8 @@ class _AnimateIconsState extends State<AnimateIcons>
         return false;
       }
     };
-    widget.controller.isStart = () => _controller.value == 0.0;
-    widget.controller.isEnd = () => _controller.value == 1.0;
+    widget.controller.isStart = () => _animation.value == 0.0;
+    widget.controller.isEnd = () => _animation.value == 1.0;
   }
 
   _onStartIconPress() {
@@ -116,8 +128,10 @@ class _AnimateIconsState extends State<AnimateIcons>
 
   @override
   Widget build(BuildContext context) {
-    double x = _controller.value;
-    double y = 1.0 - _controller.value;
+    double x = _animation.value;
+    double y = 1.0 - _animation.value;
+    double opacityX = x >= 0 && x <= 1.0 ? x : _controller.value;
+    double opacityY = y >= 0 && y <= 1.0 ? y : (1 - _controller.value);
     double angleX = math.pi / 180 * (180 * x);
     double angleY = math.pi / 180 * (180 * y);
 
@@ -126,7 +140,7 @@ class _AnimateIconsState extends State<AnimateIcons>
       return Transform.rotate(
         angle: widget.clockwise ?? false ? angleX : -angleX,
         child: Opacity(
-          opacity: y,
+          opacity: opacityY,
           child: IconButton(
             iconSize: widget.size ?? 24.0,
             color: widget.startIconColor ?? Theme.of(context).primaryColor,
@@ -148,7 +162,7 @@ class _AnimateIconsState extends State<AnimateIcons>
       return Transform.rotate(
         angle: widget.clockwise ?? false ? -angleY : angleY,
         child: Opacity(
-          opacity: x,
+          opacity: opacityX,
           child: IconButton(
             iconSize: widget.size ?? 24.0,
             color: widget.endIconColor ?? Theme.of(context).primaryColor,
