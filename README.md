@@ -26,7 +26,6 @@ Use the following widget:
         startTooltip: 'Icons.add_circle',
         // add this tooltip for the end icon
         endTooltip: 'Icons.add_circle_outline',
-        size: 60.0,
         onStartIconPress: () {
             print("Clicked on Add Icon");
             return true;
