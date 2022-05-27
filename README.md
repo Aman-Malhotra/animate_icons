@@ -1,85 +1,9 @@
-## Animate Any two icons with this plugin
+# Discontinued Package
 
-### Demo:
+This package is discontinued, so I made another one that does the same things as this one.
+Feel free to have a look at it and use it.
+I will make what's possible to fix any issue (and also I'm looking for a mantainer)
 
-<img src="https://raw.githubusercontent.com/Aman-Malhotra/animate_icons/main/demo/animate_icons.gif" height="200" />
-
-
-### How to use:
-
-All plugin in your pubspec.yaml 
-    
-> animate_icons:
-
-Make the import:
-
-> import 'package:animate_icons/animate_icons.dart';
-
-Use the following widget:
-
-    AnimateIcons(
-        startIcon: Icons.add_circle,
-        endIcon: Icons.add_circle_outline,
-        size: 100.0,
-        controller: controller,
-        // add this tooltip for the start icon
-        startTooltip: 'Icons.add_circle',
-        // add this tooltip for the end icon
-        endTooltip: 'Icons.add_circle_outline',
-        size: 60.0,
-        onStartIconPress: () {
-            print("Clicked on Add Icon");
-            return true;
-        },
-        onEndIconPress: () {
-            print("Clicked on Close Icon");
-            return true;
-        },
-        duration: Duration(milliseconds: 500),
-        startIconColor: Colors.deepPurple,
-        endIconColor: Colors.deepOrange,
-        clockwise: false,
-    ),
-
-
-# Use AnimateIconController
-Define AnimateIconController to animate b/w start and end icons without onIco press, check which icon is there on top - start or end.
-
-### Define AnimateIconController
-    
-> AnimateIconController controller;
-
-### Initialize controller    
-    
-> controller = AnimateIconController();
-
-### Pass controller to widget 
-```
-AnimateIcons(
-    startIcon: Icons.add,
-    endIcon: Icons.close,
-    controller: controller, 
-    size: 60.0,
-    onStartIconPress: () {
-        print("Clicked on Add Icon");
-        return true;
-    },
-    onEndIconPress: () {
-        print("Clicked on Close Icon");
-        return true;
-    },
-    duration: Duration(milliseconds: 500),
-    startIconColor: Colors.deepPurple,
-    endIconColor: Colors.deepOrange,
-    clockwise: false,
-),
-```
-### Use controller functions
-``` 
-if (controller.isStart()) {
-    controller.animateToEnd();
-} else if (controller.isEnd()) {
-    controller.animateToStart();
-}
-```
+[pub.dev](https://pub.dev/packages/icons_animate/)
+[Github repository](https://github.com/luca-colazzo/icons_animate)
 
